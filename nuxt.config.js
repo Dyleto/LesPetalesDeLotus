@@ -5,12 +5,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
-  /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
-  target: 'server',
+  mode: 'spa',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -76,6 +71,7 @@ export default {
       dark: true,
       themes: {
         dark: {
+          background: colors.grey.darken4,
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
