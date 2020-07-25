@@ -1,10 +1,11 @@
 <template>
-  <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-  >
-    <v-container>
+  <v-container>
+    <v-form
+      ref="form"
+      v-model="valid"
+      class="login-form"
+      lazy-validation
+    >
       <v-row>
         <v-col cols="12">
           <div class="text-h5 text-center">
@@ -15,7 +16,7 @@
           </div>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row class="mt-5">
         <v-text-field
           v-model="email"
           filled
@@ -23,7 +24,9 @@
           label="E-mail"
           required
         />
+      </v-row>
 
+      <v-row>
         <v-text-field
           v-model="password"
           filled
@@ -32,6 +35,8 @@
           label="Mot de passe"
           required
         />
+      </v-row>
+      <v-row>
         <v-btn
           text
           x-small
@@ -40,6 +45,8 @@
         >
           Tu as oublié ton mot de passe ?
         </v-btn>
+      </v-row>
+      <v-row>
         <v-btn
           :disabled="!valid"
           block
@@ -49,6 +56,8 @@
         >
           Se connecter
         </v-btn>
+      </v-row>
+      <v-row>
         <div class="mt-2">
           <span class="text--secondary text-caption">
             Besoin d'un compte ?
@@ -63,8 +72,8 @@
           </v-btn>
         </div>
       </v-row>
-    </v-container>
-  </v-form>
+    </v-form>
+  </v-container>
 </template>
 
 <script>
@@ -90,3 +99,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.login-form {
+  width: 100%;
+  max-width: 550px;
+}
+</style>
