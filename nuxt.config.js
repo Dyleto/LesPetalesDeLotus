@@ -5,7 +5,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'spa',
+  mode: 'universal',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -32,7 +32,14 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/firebase.js'
   ],
+  /*
+  * Router settings
+  */
+  router: {
+    middleware: ['authenticated']
+  },
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components

@@ -1,7 +1,7 @@
 <template>
   <v-app dark :style="{ background: $vuetify.theme.themes.dark.background}">
     <v-main>
-      <nuxt class="login_form" />
+      <nuxt class="signin-form" />
     </v-main>
   </v-app>
 </template>
@@ -9,17 +9,8 @@
 <script>
 export default {}
 </script>
-<style>
-body {
-  overflow: hidden;
-}
-</style>
 <style scoped>
-.main_logo {
-  position: absolute;
-}
-
-.login_form {
+.signin-form {
   position: absolute;
   top: 0;
   right: 0;
@@ -34,7 +25,7 @@ body {
   align-items: center;
 }
 
-.login_form::before {
+.signin-form::before {
   background: url(/logo_horizontal.png) no-repeat;
   background-position: center;
   background-size: cover;
@@ -46,14 +37,14 @@ body {
 }
 
 @media (min-width: 960px) {
-  .login_form::before {
+  .signin-form::before {
     height: 100px;
     width: 500px;
   }
 }
 
 @media (min-width: 1264px) {
-  .login_form::before {
+  .signin-form::before {
     height: 150px;
     width: 750px;
   }
