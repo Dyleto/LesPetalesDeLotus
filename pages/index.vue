@@ -73,7 +73,7 @@
           <v-btn
             color="primary"
             nuxt
-            to="/signin"
+            to="/login"
           >
             Sign In
           </v-btn>
@@ -91,8 +91,6 @@
 </template>
 
 <script>
-import firebase from 'firebase/app'
-import Cookie from 'js-cookie'
 import Logo from '~/components/Logo.vue'
 
 export default {
@@ -101,9 +99,8 @@ export default {
   },
   methods: {
     signOut () {
-      firebase.auth().signOut().then(() => {
-        Cookie.remove('access_token')
-        this.$router.push('/signin')
+      this.$store.dispatch('users/signOut').then(() => {
+        this.$router.push('/login')
       })
     }
   }

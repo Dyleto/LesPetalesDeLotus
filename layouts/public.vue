@@ -1,7 +1,7 @@
 <template>
   <v-app dark :style="{ background: $vuetify.theme.themes.dark.background}">
     <v-main>
-      <nuxt class="signin-form" />
+      <nuxt class="public-container" />
     </v-main>
   </v-app>
 </template>
@@ -10,7 +10,7 @@
 export default {}
 </script>
 <style scoped>
-.signin-form {
+.public-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -25,7 +25,7 @@ export default {}
   align-items: center;
 }
 
-.signin-form::before {
+.public-container::before {
   background: url(/logo_horizontal.png) no-repeat;
   background-position: center;
   background-size: cover;
@@ -37,14 +37,14 @@ export default {}
 }
 
 @media (min-width: 960px) {
-  .signin-form::before {
+  .public-container::before {
     height: 100px;
     width: 500px;
   }
 }
 
 @media (min-width: 1264px) {
-  .signin-form::before {
+  .public-container::before {
     height: 150px;
     width: 750px;
   }

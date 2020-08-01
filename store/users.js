@@ -1,20 +1,37 @@
-import firebase from 'firebase/app'
-import Cookie from 'js-cookie'
+import { auth } from '@/services/fireinit.js'
 
 export const state = () => ({
   user: null
 })
 
-export const actions = {
-  async signIn ({ commit }, { email, password }) {
-    const { user } = await firebase.auth().signInWithEmailAndPassword(email, password)
-    const token = await user.getIdToken()
+export const getters = {
+  activeUser: (state) => {
+    return state.user
+  }
+}
 
-    Cookie.set('access_token', token)
-    commit('SET_USER', {
-      uid: user.uid,
-      email: user.email
+export const actions = {
+  setUser ({ commit }, user) {
+    if (user) {
+      commit('SET_USER', {
+        uid: user.uid,
+        email: user.email,
+        username: user.displayName
+      })
+    }
+  },
+  async signIn ({ commit }, { email, password }) {
+    await auth.signInWithEmailAndPassword(email, password)
+  },
+  async signUp ({ commit }, { email, username, password }) {
+    const { user } = await auth.createUserWithEmailAndPassword(email, password)
+    user.updateProfile({
+      displayName: username
     })
+  },
+  async signOut ({ commit }) {
+    await auth.signOut()
+    commit('SET_USER', null)
   }
 }
 
