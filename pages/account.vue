@@ -1,5 +1,5 @@
 <template>
-  <div>{{ activeUser.username }}</div>
+  <div>{{ activeUser ? activeUser.username : '' }}</div>
 </template>
 
 <script>

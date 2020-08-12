@@ -32,7 +32,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/fireauth.js'
+    '~/plugins/fireauth.js',
+    '~/plugins/applicationError'
   ],
   /*
   * Router settings

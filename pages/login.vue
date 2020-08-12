@@ -107,7 +107,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.$store.dispatch('users/signIn', { email: this.email, password: this.password })
           .then(() => {
-            this.$router.push('/account')
+            this.$router.push('/')
           })
           .catch((err) => {
             this.handleError(err)
@@ -126,7 +126,7 @@ export default {
           this.passwordErrorMessages = ['Le mot de passe renseigné n\'est pas correct']
           break
         default:
-          this.adminErrorMessage = 'Désolé, il y a un problème au niveau de la connexion à l\'application, merci de contacter un administrateur.'
+          this.adminErrorMessage = 'Désolé, il y a un problème au niveau de la connexion à l\'application, merci de contacter un administrateur'
           break
       }
     }

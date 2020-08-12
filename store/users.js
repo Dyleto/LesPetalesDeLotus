@@ -1,7 +1,9 @@
-import { auth } from '@/services/fireinit.js'
+import { auth, StoreDB } from '@/services/fireinit.js'
 
 export const state = () => ({
-  user: null
+  user: {
+    username: ''
+  }
 })
 
 export const getters = {
@@ -11,23 +13,50 @@ export const getters = {
 }
 
 export const actions = {
-  setUser ({ commit }, user) {
+  async setUser ({ commit }, user) {
     if (user) {
-      commit('SET_USER', {
+      const userObj = {
         uid: user.uid,
-        email: user.email,
-        username: user.displayName
-      })
+        email: user.email
+      }
+
+      const doc = await StoreDB.collection('users').doc(user.uid).get()
+      if (doc.exists) {
+        const docData = doc.data()
+        userObj.username = docData.username
+      }
+
+      commit('SET_USER', userObj)
     }
   },
   async signIn ({ commit }, { email, password }) {
-    await auth.signInWithEmailAndPassword(email, password)
+    const { user } = await auth.signInWithEmailAndPassword(email, password)
+    if (user) {
+      const userObj = {
+        uid: user.uid,
+        email: user.email
+      }
+
+      const doc = await StoreDB.collection('users').doc(user.uid).get()
+      if (doc.exists) {
+        const docData = doc.data()
+        userObj.username = docData.username
+      }
+
+      commit('SET_USER', userObj)
+    }
   },
   async signUp ({ commit }, { email, username, password }) {
-    const { user } = await auth.createUserWithEmailAndPassword(email, password)
-    user.updateProfile({
-      displayName: username
-    })
+    const list = await StoreDB.collection('users').where('username', '==', username).get()
+    if (!list.empty) {
+      return this.$rejectPromise('auth/username-already-in-use', 'Username is already in use by another account.')
+    } else {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password)
+
+      StoreDB.collection('users').doc(user.uid).set({
+        username
+      })
+    }
   },
   async signOut ({ commit }) {
     await auth.signOut()

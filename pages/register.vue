@@ -10,7 +10,16 @@
       </v-row>
       <v-row class="mt-5" dense>
         <v-col cols="12">
-          <v-text-field v-model="email" filled :rules="emailRules" label="E-mail" required />
+          <v-text-field
+            v-model="email"
+            filled
+            :rules="emailRules"
+            label="E-mail"
+            required
+            :error-messages="emailErrorMessages"
+            @input="emailErrorMessages = []"
+            @blur="emailErrorMessages = []"
+          />
         </v-col>
         <v-col cols="12">
           <v-text-field
@@ -19,6 +28,9 @@
             :rules="usernameRules"
             label="Nom d'utilisateur"
             required
+            :error-messages="usernameErrorMessages"
+            @input="usernameErrorMessages = []"
+            @blur="usernameErrorMessages = []"
           />
         </v-col>
         <v-col cols="12">
@@ -71,11 +83,13 @@ export default {
       v => !!v || "L'e-mail est obligatoire",
       v => /.+@.+\..+/.test(v) || "L'e-mail doit être valide"
     ],
+    emailErrorMessages: [],
     username: '',
     usernameRules: [
       v => !!v || "Le nom d'utilisateur est obligatoire",
       v => v.length >= 3 || "Le nom d'utilisateur doit faire au moins 3 caractères"
     ],
+    usernameErrorMessages: [],
     password: '',
     showPassword: false,
     passwordRules: [v => !!v || 'Le mot de passe est obligatoire'],
@@ -99,8 +113,14 @@ export default {
     },
     handleError (error) {
       switch (error.code) {
+        case 'auth/username-already-in-use':
+          this.usernameErrorMessages = ['Ce nom d\'utilisateur est déjà utilisé par une autre personne']
+          break
+        case 'auth/email-already-in-use':
+          this.emailErrorMessages = ['Cet email est déjà utilisé par une autre personne']
+          break
         default:
-          this.adminErrorMessage = 'Désolé, il y a un problème au niveau de la connexion à l\'application, merci de contacter un administrateur.'
+          this.adminErrorMessage = 'Désolé, il y a un problème au niveau de la connexion à l\'application, merci de contacter un administrateur'
           break
       }
     }
