@@ -1,6 +1,11 @@
 <template>
   <v-app dark>
     <AppNavbar />
+    <v-main>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
@@ -36,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style>
+html {
+  overflow: auto;
+}
+</style>

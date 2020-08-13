@@ -1,20 +1,29 @@
 <template>
   <v-navigation-drawer
     :mini-variant="mini"
-    permanent
     fixed
     app
+    mobile-breakpoint="600"
   >
     <template v-slot:prepend>
       <v-list-item class="px-2">
         <v-btn
           icon
+          :title="mini ? 'Déplier le bandeau' : 'Replier le bandeau'"
           @click.stop="mini = !mini"
         >
           <v-icon>mdi-chevron-{{ mini ? 'right' : 'left' }}</v-icon>
         </v-btn>
-        <v-list-item-title class="pl-5">
-          Les Pétales de Lotus
+        <v-list-item-title class="pl-5" to="/">
+          <v-btn
+            text
+            small
+            class="remove-active"
+            to="/"
+            title="Accueil"
+          >
+            Les Pétales de Lotus
+          </v-btn>
         </v-list-item-title>
       </v-list-item>
     </template>
@@ -51,6 +60,7 @@
         <v-btn
           v-if="!mini"
           icon
+          title="se déconnecter"
           @click="logout"
         >
           <v-icon>mdi-logout</v-icon>
@@ -69,14 +79,9 @@ export default {
       mini: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-account-group-outline',
+          title: 'Membres',
+          to: '/members'
         }
       ],
       title: 'Vuetify.js'

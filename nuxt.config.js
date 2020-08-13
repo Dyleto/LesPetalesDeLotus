@@ -26,14 +26,16 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/default.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/fireauth.js',
-    '~/plugins/applicationError'
+    '~/plugins/fireauth',
+    '~/plugins/applicationError',
+    '~/plugins/axiosinit'
   ],
   /*
   * Router settings

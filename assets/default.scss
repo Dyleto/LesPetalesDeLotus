@@ -1,0 +1,4 @@
+.theme--dark.remove-active.v-btn--active::before,
+.theme--dark.remove-active.v-btn--active:hover::before {
+  opacity: 0;
+}
