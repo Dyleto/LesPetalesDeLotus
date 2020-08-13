@@ -34,8 +34,6 @@ const BlizzardService = {
       },
       ...axiosConfig
     })
-
-    console.log(data)
     return data
   },
   async get (url, data) {
