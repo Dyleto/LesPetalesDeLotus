@@ -87,7 +87,7 @@ export default {
     username: '',
     usernameRules: [
       v => !!v || "Le nom d'utilisateur est obligatoire",
-      v => v.length >= 3 || "Le nom d'utilisateur doit faire au moins 3 caractères"
+      v => v.length >= 2 || "Le nom d'utilisateur doit faire au moins 2 caractères"
     ],
     usernameErrorMessages: [],
     password: '',

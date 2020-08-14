@@ -36,6 +36,12 @@ const BlizzardService = {
     })
     return data
   },
+  async getStatic (url) {
+    return await this.get(url, {
+      namespace: 'static-eu',
+      locale: 'fr_FR'
+    })
+  },
   async get (url, data) {
     await setBlizzardTokenInAxiosConfig()
     const res = await axios({ url: `${BLIZZARD_API_URL}/${url}`, data, ...axiosConfig })

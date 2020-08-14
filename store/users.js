@@ -29,6 +29,30 @@ export const actions = {
       commit('SET_USER', userObj)
     }
   },
+  async updateUser ({ commit }, user) {
+    if (user) {
+      const userObj = {
+        ...state.user
+      }
+
+      const doc = await StoreDB.collection('users').doc(user.uid).get()
+      if (doc.exists) {
+        let ref = StoreDB.collection('users')
+        ref = ref.where('username', '==', user.username)
+        ref = ref.where('id', '<', user.uid).where('id', '>', user.uid)
+        const list = await ref.get()
+
+        if (!list.empty) {
+          return this.$rejectPromise('auth/username-already-in-use', 'Username is already in use by another account.')
+        } else {
+          await StoreDB.collection('users').doc(user.uid).update({ username: user.username })
+          userObj.username = user.username
+        }
+      }
+
+      commit('SET_USER', userObj)
+    }
+  },
   async signIn ({ commit }, { email, password }) {
     const { user } = await auth.signInWithEmailAndPassword(email, password)
     if (user) {

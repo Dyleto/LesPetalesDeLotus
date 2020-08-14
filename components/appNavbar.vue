@@ -6,26 +6,34 @@
     mobile-breakpoint="600"
   >
     <template v-slot:prepend>
-      <v-list-item class="px-2">
+      <v-list-item class="px-2 py-2 header">
         <v-btn
           icon
           :title="mini ? 'Déplier le bandeau' : 'Replier le bandeau'"
+          class="toggle-mini"
           @click.stop="mini = !mini"
         >
           <v-icon>mdi-chevron-{{ mini ? 'right' : 'left' }}</v-icon>
         </v-btn>
-        <v-list-item-title class="pl-5" to="/">
+        <v-list-item-title to="/">
           <v-btn
             text
             small
-            class="remove-active"
+            class="remove-active logo-btn"
             to="/"
             title="Accueil"
           >
-            Les Pétales de Lotus
+            <v-img
+              src="/navbar_logo.png"
+              width="175"
+              height="62"
+              contain
+            />
           </v-btn>
         </v-list-item-title>
       </v-list-item>
+
+      <v-divider />
     </template>
 
     <v-list>
@@ -51,14 +59,22 @@
         <v-btn
           v-if="mini"
           icon
-          @click.stop="mini = !mini"
+          title="se déconnecter"
+          to="/settings"
         >
-          <v-icon>mdi-logout</v-icon>
+          <v-icon>mdi-cog</v-icon>
         </v-btn>
 
         <v-list-item-title>{{ activeUser ? activeUser.username : '' }}</v-list-item-title>
         <v-btn
           v-if="!mini"
+          icon
+          title="se déconnecter"
+          to="/settings"
+        >
+          <v-icon>mdi-cog</v-icon>
+        </v-btn>
+        <v-btn
           icon
           title="se déconnecter"
           @click="logout"
@@ -99,3 +115,16 @@ export default {
   }
 }
 </script>
+<style scoped>
+.toggle-mini {
+  /* margin-top: 27px; */
+}
+
+.header {
+  height: 78px;
+}
+
+.logo-btn {
+  height: 100% !important;
+}
+</style>
