@@ -6,7 +6,7 @@ export default (context) => {
   return new Promise((resolve, reject) => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        return resolve(store.dispatch('users/setUser', user))
+        return resolve(store.dispatch('users/setCurrentUser', user))
       }
       return resolve()
     })

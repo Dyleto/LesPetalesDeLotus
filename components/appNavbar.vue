@@ -56,30 +56,22 @@
     <template v-slot:append>
       <v-divider />
       <v-list-item class="px-2">
+        <v-list-item-avatar>
+          <img
+            :src="mainCharacter.avatar_url"
+            :alt="mainCharacter ? mainCharacter.name : ''"
+          >
+        </v-list-item-avatar>
+        <v-list-item-title>
+          <span class="character-name" :style="{color: characterClassColor }">{{ activeUser ? activeUser.username : '' }}</span>
+        </v-list-item-title>
         <v-btn
-          v-if="mini"
           icon
-          title="se déconnecter"
+          title="Réglages"
           to="/settings"
+          class="mx-2"
         >
           <v-icon>mdi-cog</v-icon>
-        </v-btn>
-
-        <v-list-item-title>{{ activeUser ? activeUser.username : '' }}</v-list-item-title>
-        <v-btn
-          v-if="!mini"
-          icon
-          title="se déconnecter"
-          to="/settings"
-        >
-          <v-icon>mdi-cog</v-icon>
-        </v-btn>
-        <v-btn
-          icon
-          title="se déconnecter"
-          @click="logout"
-        >
-          <v-icon>mdi-logout</v-icon>
         </v-btn>
       </v-list-item>
     </template>
@@ -104,22 +96,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ activeUser: 'users/activeUser' })
-  },
-  methods: {
-    logout () {
-      this.$store.dispatch('users/signOut').then(() => {
-        this.$router.push('/login')
-      })
-    }
+    characterClassColor () {
+      return this.mainCharacter && this.mainCharacter.character_class && this.mainCharacter.character_class.media ? this.mainCharacter.character_class.media.color : ''
+    },
+    ...mapGetters({ activeUser: 'users/activeUser', mainCharacter: 'users/mainCharacter' })
   }
 }
 </script>
 <style scoped>
-.toggle-mini {
-  /* margin-top: 27px; */
-}
-
 .header {
   height: 78px;
 }

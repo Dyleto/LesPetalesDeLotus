@@ -1,37 +1,67 @@
 import { auth, StoreDB } from '@/services/fireinit.js'
+import BlizzardService from '@/services/blizzard'
+import classes from '@/services/classes'
 
 export const state = () => ({
   user: {
     username: ''
-  }
+  },
+  mainCharacter: {}
 })
 
 export const getters = {
   activeUser: (state) => {
     return state.user
+  },
+  mainCharacter: (state) => {
+    return state.mainCharacter
   }
 }
 
 export const actions = {
-  async setUser ({ commit }, user) {
-    if (user) {
-      const userObj = {
-        uid: user.uid,
-        email: user.email
+  async searchMainCharacter ({ commit }, characterName) {
+    if (characterName) {
+      try {
+        const data = await getCharacterInfo(characterName)
+        return data
+      } catch (error) {
+        return this.$rejectPromise('searching-character/character-not-found', 'The character was not found in WoW API.')
       }
+    }
+  },
+  async updateMainCharacter ({ commit }, { uid, mainCharacter }) {
+    if (mainCharacter && uid) {
+      const ref = StoreDB.collection('users').doc(uid)
+      const doc = await ref.get()
+      if (doc.exists) {
+        await ref.update({ mainCharacter })
 
+        const characterInfo = await getCharacterInfo(mainCharacter)
+        commit('SET_MAIN_CHARACTER', characterInfo)
+      }
+    }
+  },
+  async setCurrentUser ({ commit }, user) {
+    if (user) {
       const doc = await StoreDB.collection('users').doc(user.uid).get()
       if (doc.exists) {
         const docData = doc.data()
-        userObj.username = docData.username
-      }
 
-      commit('SET_USER', userObj)
+        commit('SET_USER', {
+          uid: user.uid,
+          email: user.email,
+          username: docData.username
+        })
+
+        const characterInfo = await getCharacterInfo(docData.mainCharacter)
+        commit('SET_MAIN_CHARACTER', characterInfo)
+      }
     }
   },
   async updateUser ({ commit }, user) {
     if (user) {
       const userObj = {
+        uid: user.uid,
         ...state.user
       }
 
@@ -91,5 +121,28 @@ export const actions = {
 export const mutations = {
   SET_USER: (state, user) => {
     state.user = user
+  },
+  SET_MAIN_CHARACTER: (state, mainCharacter) => {
+    state.mainCharacter = mainCharacter
+  }
+}
+
+const getCharacterInfo = async (characterName) => {
+  const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}?namespace=profile-eu&locale=fr_FR`)
+
+  if (data) {
+    const classInfo = classes.getById(data.character_class.id)
+
+    data.character_class = {
+      ...data.character_class,
+      ...classInfo
+    }
+
+    const charMedia = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/character-media?namespace=profile-eu&locale=fr_FR`)
+    data.avatar_url = charMedia.avatar_url
+    data.bust_url = charMedia.bust_url
+    data.render_url = charMedia.render_url
+
+    return data
   }
 }

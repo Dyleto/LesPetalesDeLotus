@@ -34,9 +34,9 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/axiosinit',
     '~/plugins/fireauth',
-    '~/plugins/applicationError',
-    '~/plugins/axiosinit'
+    '~/plugins/applicationError'
   ],
   /*
   * Router settings
