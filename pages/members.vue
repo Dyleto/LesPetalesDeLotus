@@ -1,46 +1,25 @@
 <template>
   <v-layout>
-    <v-flex class="px-5">
+    <v-flex class="px-1 px-md-5">
       <v-toolbar
-        dark
-        class="mb-5"
+        dense
+        flat
+        class="mb-5 ml-10 search-toolbar"
       >
         <v-text-field
           v-model="search"
-          clearable
-          flat
-          solo-inverted
+          single-line
+          color="white"
           hide-details
-          prepend-inner-icon="mdi-magnify"
-          label="Search"
+          prepend-icon="mdi-magnify"
         />
-        <!-- <template v-if="$vuetify.breakpoint.mdAndUp">
-          <v-spacer />
-          <v-select
-            v-model="sortBy"
-            flat
-            solo-inverted
-            hide-details
-            prepend-inner-icon="mdi-magnify"
-            label="Sort by"
-          />
-        </template> -->
       </v-toolbar>
-      <!-- <v-virtual-scroll
-        :items="filteredMembers"
-        :item-height="58"
-        height="900"
-      > -->
-      <!-- <template v-slot="{ item }"> -->
       <MemberLine
         v-for="member in filteredMembers"
-        :key="member.character.name"
+        :key="member.name"
+        class="member-line"
         :member="member"
-        class="py-1"
       />
-      <v-divider />
-      <!-- </template> -->
-      <!-- </v-virtual-scroll> -->
     </v-flex>
   </v-layout>
 </template>
@@ -61,7 +40,7 @@ export default {
   computed: {
     filteredMembers () {
       const search = this.search ?? ''
-      return this.members.filter(m => m.character.name.toLowerCase().includes(search.toLowerCase()))
+      return this.members.filter(m => m.name.toLowerCase().includes(search.toLowerCase()))
     },
     ...mapGetters({ members: 'members/getMembers' })
   },
@@ -75,3 +54,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.member-line {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.12);
+}
+
+.search-toolbar {
+  background-color: transparent !important;
+}
+</style>

@@ -1,6 +1,8 @@
 <template>
   <v-app dark>
-    <AppNavbar />
+    <v-app-bar-nav-icon v-if="isMobile" class="mx-2 my-2 navbar-icon" @click.stop="openMenu" />
+    <AppNavbar ref="menu" />
+    <MainCharacterDialog />
     <v-main>
       <v-container>
         <nuxt />
@@ -11,32 +13,26 @@
 
 <script>
 import AppNavbar from '@/components/appNavbar'
+import MainCharacterDialog from '@/components/mainCharacterDialog'
 
 export default {
   components: {
-    AppNavbar
+    AppNavbar,
+    MainCharacterDialog
   },
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      drawer: false
+    }
+  },
+  computed: {
+    isMobile () {
+      return screen.width <= 600
+    }
+  },
+  methods: {
+    openMenu () {
+      this.$refs.menu.openMenu()
     }
   }
 }
@@ -45,5 +41,18 @@ export default {
 <style>
 html {
   overflow: auto;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+</style>
+
+<style scoped>
+.navbar-icon {
+  position: absolute;
+  z-index: 5;
 }
 </style>

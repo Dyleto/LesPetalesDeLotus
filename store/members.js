@@ -1,4 +1,5 @@
 import BlizzardService from '@/services/blizzard'
+import { StoreDB } from '@/services/fireinit.js'
 
 const itemOrder = [
   'HEAD',
@@ -31,21 +32,18 @@ export const getters = {
 
 export const actions = {
   async fetchMembers ({ commit }) {
-    const data = await BlizzardService.getProfile('data/wow/guild/archimonde/les-pétales-de-lotus/roster?namespace=profile-eu&locale=fr_FR')
-    commit('SET_MEMBERS', data.members)
-  },
-  async loadMemberItems ({ commit }, characterName) {
-    let items = []
-    try {
-      const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/equipment?namespace=profile-eu&locale=fr_FR`)
-      if (data) {
-        items = await orderItemList(data.equipped_items)
-      }
-    } catch (error) {
-      items = []
-    }
+    const snapshot = await StoreDB.collection('users').where('mainCharacter', '>', '').get()
 
-    commit('SET_ITEMS', { characterName, items })
+    const members = []
+    snapshot.forEach((doc) => {
+      const elem = doc.data()
+
+      members.push({
+        name: elem.mainCharacter
+      })
+    })
+
+    commit('SET_MEMBERS', members)
   },
   async loadMemberCharacterInfo ({ commit }, characterName) {
     let fullCharacter = {}
@@ -59,6 +57,19 @@ export const actions = {
     }
 
     commit('SET_CHARACTER_INFO', { characterName, fullCharacter })
+  },
+  async loadMemberItems ({ commit }, characterName) {
+    let items = []
+    try {
+      const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/equipment?namespace=profile-eu&locale=fr_FR`)
+      if (data) {
+        items = await orderItemList(data.equipped_items)
+      }
+    } catch (error) {
+      items = []
+    }
+
+    commit('SET_ITEMS', { characterName, items })
   }
 }
 
@@ -67,23 +78,17 @@ export const mutations = {
     state.members = [...members]
   },
   SET_ITEMS: (state, { characterName, items }) => {
-    const member = state.members.find(m => m.character.name === characterName)
+    const member = state.members.find(m => m.name === characterName)
     if (member) {
-      member.character.items = items
+      member.items = items
       member.itemsLoaded = true
     }
   },
   SET_CHARACTER_INFO: (state, { characterName, fullCharacter }) => {
-    const member = state.members.find(m => m.character.name === characterName)
+    const member = state.members.find(m => m.name === characterName)
     if (member) {
-      member.character = { ...fullCharacter, ...member.character }
+      Object.assign(member, fullCharacter)
       member.characterInfoLoaded = true
-
-      // const isActive = Math.round((Date.now() - new Date(member.character.last_login_timestamp)) / (1000 * 60 * 60 * 24)) < 365
-
-      // if (!isActive) {
-      //   state.members = state.members.filter(m => m.character.name !== characterName)
-      // }
     }
   }
 }

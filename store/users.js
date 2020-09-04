@@ -15,6 +15,9 @@ export const getters = {
   },
   mainCharacter: (state) => {
     return state.mainCharacter
+  },
+  isLogged: (state) => {
+    return state.user && state.user.uid
   }
 }
 
@@ -33,7 +36,15 @@ export const actions = {
     if (mainCharacter && uid) {
       const ref = StoreDB.collection('users').doc(uid)
       const doc = await ref.get()
+
       if (doc.exists) {
+        if (doc.data().mainCharacter !== mainCharacter) {
+          const uniqueCharacterQuery = await StoreDB.collection('users').where('mainCharacter', '==', mainCharacter).get()
+          if (!uniqueCharacterQuery.empty) {
+            return this.$rejectPromise('searching-character/character-already-in-use', 'Character is already in use by another account.')
+          }
+        }
+
         await ref.update({ mainCharacter })
 
         const characterInfo = await getCharacterInfo(mainCharacter)
@@ -53,8 +64,10 @@ export const actions = {
           username: docData.username
         })
 
-        const characterInfo = await getCharacterInfo(docData.mainCharacter)
-        commit('SET_MAIN_CHARACTER', characterInfo)
+        if (docData.mainCharacter) {
+          const characterInfo = await getCharacterInfo(docData.mainCharacter)
+          commit('SET_MAIN_CHARACTER', characterInfo)
+        }
       }
     }
   },
@@ -66,18 +79,18 @@ export const actions = {
       }
 
       const doc = await StoreDB.collection('users').doc(user.uid).get()
-      if (doc.exists) {
-        let ref = StoreDB.collection('users')
-        ref = ref.where('username', '==', user.username)
-        ref = ref.where('id', '<', user.uid).where('id', '>', user.uid)
-        const list = await ref.get()
 
-        if (!list.empty) {
-          return this.$rejectPromise('auth/username-already-in-use', 'Username is already in use by another account.')
-        } else {
-          await StoreDB.collection('users').doc(user.uid).update({ username: user.username })
-          userObj.username = user.username
+      if (doc.exists) {
+        if (doc.data().username !== user.username) {
+          const list = await StoreDB.collection('users').where('username', '==', user.username).get()
+
+          if (!list.empty) {
+            return this.$rejectPromise('auth/username-already-in-use', 'Username is already in use by another account.')
+          }
         }
+
+        await StoreDB.collection('users').doc(user.uid).update({ username: user.username })
+        userObj.username = user.username
       }
 
       commit('SET_USER', userObj)
@@ -95,6 +108,7 @@ export const actions = {
       if (doc.exists) {
         const docData = doc.data()
         userObj.username = docData.username
+        userObj.mainCharacter = docData.mainCharacter
       }
 
       commit('SET_USER', userObj)
@@ -110,11 +124,18 @@ export const actions = {
       StoreDB.collection('users').doc(user.uid).set({
         username
       })
+
+      commit('SET_USER', {
+        uid: user.uid,
+        username,
+        email: user.email
+      })
     }
   },
   async signOut ({ commit }) {
     await auth.signOut()
     commit('SET_USER', null)
+    commit('SET_MAIN_CHARACTER', null)
   }
 }
 

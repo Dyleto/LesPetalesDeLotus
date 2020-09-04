@@ -32,9 +32,10 @@
         <v-col cols="12" class="character-searching-area">
           <v-progress-linear
             v-if="mainCharacterTyping || searchingChar"
+            color="primary"
             indeterminate
-            color="cyan"
-            query
+            rounded
+            height="5"
           />
           <div v-else-if="!searchingChar && mainCharacterInfo.name">
             <v-avatar class="mr-2 class-icon" tile>
@@ -137,8 +138,9 @@ export default {
       }
 
       const mainCharacter = this.$store.getters['users/mainCharacter']
-      this.mainCharacter = mainCharacter.name
-      if (this.mainCharacter) {
+
+      if (mainCharacter && mainCharacter.name) {
+        this.mainCharacter = mainCharacter.name
         this.searchCharacter(this.mainCharacter)
       } else {
         this.mainCharacterInfo = {}
@@ -165,6 +167,9 @@ export default {
         case 'searching-character/character-not-found':
           this.mainCharacterErrorMessages = 'Le personnage renseigné n\'a pas été retrouvé'
           break
+        case 'searching-character/character-already-in-use':
+          this.mainCharacterErrorMessages = 'Le personnage renseigné est déjà le personnage principal de quelqu\'un d\'autre'
+          break
         default:
           this.adminErrorMessage = 'Désolé, il y a un problème au niveau de la connexion à l\'application, merci de contacter un administrateur'
           break
@@ -175,14 +180,6 @@ export default {
 </script>
 
 <style scoped>
-.ilevel {
-  font-weight: lighter;
-}
-
-.class-icon {
-  border: 1px solid #000;
-}
-
 .character-searching-area {
   height: 48px;
 }

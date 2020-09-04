@@ -33,6 +33,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/71?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_warrior_savageblow.jpg',
         name: 'Armes',
         id: 71
       },
@@ -40,6 +41,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/72?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_warrior_innerrage.jpg',
         name: 'Fureur',
         id: 72
       },
@@ -47,6 +49,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/73?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_warrior_defensivestance.jpg',
         name: 'Protection',
         id: 73
       }
@@ -96,6 +99,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/65?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_holy_holybolt.jpg',
         name: 'Sacré',
         id: 65
       },
@@ -103,6 +107,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/66?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_paladin_shieldofthetemplar.jpg',
         name: 'Protection',
         id: 66
       },
@@ -110,6 +115,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/70?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_holy_auraoflight.jpg',
         name: 'Vindicte',
         id: 70
       }
@@ -159,6 +165,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/253?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_hunter_bestialdiscipline.jpg',
         name: 'Maîtrise des bêtes',
         id: 253
       },
@@ -166,6 +173,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/254?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_hunter_focusedaim.jpg',
         name: 'Précision',
         id: 254
       },
@@ -173,6 +181,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/255?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_hunter_camouflage.jpg',
         name: 'Survie',
         id: 255
       }
@@ -222,6 +231,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/259?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_rogue_deadlybrew.jpg',
         name: 'Assassinat',
         id: 259
       },
@@ -229,6 +239,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/260?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_rogue_waylay.jpg',
         name: 'Hors-la-loi',
         id: 260
       },
@@ -236,6 +247,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/261?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_stealth.jpg',
         name: 'Finesse',
         id: 261
       }
@@ -285,6 +297,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/256?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_holy_powerwordshield.jpg',
         name: 'Discipline',
         id: 256
       },
@@ -292,6 +305,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/257?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_holy_guardianspirit.jpg',
         name: 'Sacré',
         id: 257
       },
@@ -299,6 +313,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/258?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_shadow_shadowwordpain.jpg',
         name: 'Ombre',
         id: 258
       }
@@ -348,6 +363,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/250?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_deathknight_bloodpresence.jpg',
         name: 'Sang',
         id: 250
       },
@@ -355,6 +371,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/251?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_deathknight_frostpresence.jpg',
         name: 'Givre',
         id: 251
       },
@@ -362,6 +379,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/252?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_deathknight_unholypresence.jpg',
         name: 'Impie',
         id: 252
       }
@@ -411,6 +429,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/262?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_nature_lightning.jpg',
         name: 'Élémentaire',
         id: 262
       },
@@ -418,6 +437,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/263?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_shaman_improvedstormstrike.jpg',
         name: 'Amélioration',
         id: 263
       },
@@ -425,6 +445,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/264?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_nature_magicimmunity.jpg',
         name: 'Restauration',
         id: 264
       }
@@ -474,6 +495,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/62?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_holy_magicalsentry.jpg',
         name: 'Arcanes',
         id: 62
       },
@@ -481,6 +503,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/63?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_fire_firebolt02.jpg',
         name: 'Feu',
         id: 63
       },
@@ -488,6 +511,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/64?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_frost_frostbolt02.jpg',
         name: 'Givre',
         id: 64
       }
@@ -537,6 +561,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/265?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_shadow_deathcoil.jpg',
         name: 'Affliction',
         id: 265
       },
@@ -544,6 +569,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/266?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_shadow_metamorphosis.jpg',
         name: 'Démonologie',
         id: 266
       },
@@ -551,6 +577,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/267?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_shadow_rainoffire.jpg',
         name: 'Destruction',
         id: 267
       }
@@ -600,6 +627,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/268?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_monk_brewmaster_spec.jpg',
         name: 'Maître brasseur',
         id: 268
       },
@@ -607,6 +635,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/269?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_monk_windwalker_spec.jpg',
         name: 'Marche-vent',
         id: 269
       },
@@ -614,6 +643,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/270?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_monk_mistweaver_spec.jpg',
         name: 'Tisse-brume',
         id: 270
       }
@@ -663,6 +693,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/102?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_nature_starfall.jpg',
         name: 'Équilibre',
         id: 102
       },
@@ -670,6 +701,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/103?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_druid_catform.jpg',
         name: 'Farouche',
         id: 103
       },
@@ -677,6 +709,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/104?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_racial_bearform.jpg',
         name: 'Gardien',
         id: 104
       },
@@ -684,6 +717,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/105?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/spell_nature_healingtouch.jpg',
         name: 'Restauration',
         id: 105
       }
@@ -733,6 +767,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/577?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_demonhunter_specdps.jpg',
         name: 'Dévastation',
         id: 577
       },
@@ -740,6 +775,7 @@ const classes = [
         key: {
           href: 'https://eu.api.blizzard.com/data/wow/playable-specialization/581?namespace=static-8.3.7_35114-eu'
         },
+        icon: 'https://render-eu.worldofwarcraft.com/icons/56/ability_demonhunter_spectank.jpg',
         name: 'Vengeance',
         id: 581
       }

@@ -101,7 +101,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.$store.dispatch('users/signUp', { email: this.email, username: this.username, password: this.password })
           .then(() => {
-            this.$router.push('/account')
+            this.$router.push('/')
           })
           .catch((err) => {
             this.handleError(err)

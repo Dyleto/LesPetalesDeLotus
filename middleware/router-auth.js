@@ -1,9 +1,9 @@
 export default function ({ store, redirect, route }) {
-  const user = store.state.users.user
-  const publicRoutes = ['/login', '/register']
-  if (!user && !publicRoutes.includes(route.path)) {
+  const isLogged = store.getters['users/isLogged']
+  const publicRoutes = ['login', 'register']
+  if (!isLogged && !publicRoutes.includes(route.name)) {
     redirect('/login')
-  } else if (user && publicRoutes.includes(route.path)) {
+  } else if (isLogged && publicRoutes.includes(route.name)) {
     redirect('/')
   }
 }
