@@ -27,19 +27,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   data () {
     return {
-      dialog: true
+      dialog: false
     }
   },
-  computed: {
-    ...mapGetters({ mainCharacter: 'users/mainCharacter' })
-  },
   mounted () {
-    this.dialog = !(this.mainCharacter && this.mainCharacter.name)
+    this.dialog = !this.$store.getters['users/activeUser'].mainCharacter
   }
 }
 </script>

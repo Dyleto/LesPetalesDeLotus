@@ -61,7 +61,8 @@ export const actions = {
         commit('SET_USER', {
           uid: user.uid,
           email: user.email,
-          username: docData.username
+          username: docData.username,
+          mainCharacter: docData.mainCharacter
         })
 
         if (docData.mainCharacter) {

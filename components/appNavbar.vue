@@ -61,7 +61,7 @@
         <v-list-item class="px-2">
           <v-list-item-avatar>
             <img
-              :src="mainCharacter ? mainCharacter.avatar_url : ''"
+              :src="avatar"
               :alt="mainCharacter ? mainCharacter.name : ''"
             >
           </v-list-item-avatar>
@@ -101,6 +101,9 @@ export default {
     }
   },
   computed: {
+    avatar () {
+      return this.mainCharacter ? this.mainCharacter.avatar_url : 'https://render-us.worldofwarcraft.com/shadow/avatar/1-0.jpg'
+    },
     characterClassColor () {
       return this.mainCharacter && this.mainCharacter.character_class && this.mainCharacter.character_class.media ? this.mainCharacter.character_class.media.color : ''
     },
