@@ -20,6 +20,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { innerHTML: 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};', type: 'text/javascript', charset: 'utf-8' },
+      {
+        src: 'https://wow.zamimg.com/widgets/power.js'
+      }
     ]
   },
   /*

@@ -13,12 +13,14 @@
         max-height="40"
         :src="characterClassIcon"
         :alt="characterClassName"
+        :title="characterClassName"
       /><v-img
         class="class-icon"
         max-width="40"
         max-height="40"
         :src="characterSpecIcon"
         :alt="characterSpecName"
+        :title="characterSpecName"
       />
     </div>
     <div class="col-12 col-md-7 col-lg-7 d-flex align-center list-item">
@@ -38,13 +40,18 @@
         :key="i"
         class="item"
       >
-        <v-img
-          :src="item.media.icon"
-          max-width="40"
-          max-height="40"
-          class="grey lighten-2 item-icon"
-        />
-        <span :class="`item-level ${item.quality ? 'quality-' + item.quality.type.toLowerCase() : ''}`"> {{ item.level ? item.level.value : '' }}</span>
+        <a
+          :href="'https://fr.wowhead.com/item=' + item.item.id"
+          target="_blank"
+        >
+          <v-img
+            :src="item.media.icon"
+            max-width="40"
+            max-height="40"
+            class="item-icon"
+          />
+          <span :class="`item-level ${item.quality ? 'quality-' + item.quality.type.toLowerCase() : ''}`"> {{ item.level ? item.level.value : '' }}</span>
+        </a>
       </div>
     </div>
   </div>
