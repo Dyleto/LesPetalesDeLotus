@@ -3,24 +3,23 @@
     <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center character-name" :style="{color: characterClassColor }">
       {{ member.name }}
     </div>
-    <div class="col-2 col-sm-3 col-md-1 col-lg-1 d-flex align-center ilevel">
+    <div class="col-2 col-sm-1 col-md-1 col-lg-1 d-flex align-center ilevel">
       {{ character.equipped_item_level }}
     </div>
-    <div class="col-3 col-sm-3 col-md-1 col-lg-1 d-flex align-center justify-center">
-      <v-avatar class="class-icon" tile>
-        <img
-          :src="characterClassIcon"
-          :alt="characterClassName"
-        >
-      </v-avatar>
-    </div>
-    <div class="col-3 col-sm-3 col-md-1 col-lg-1 d-flex align-center justify-center">
-      <v-avatar class="class-icon" tile>
-        <img
-          :src="characterSpecIcon"
-          :alt="characterSpecName"
-        >
-      </v-avatar>
+    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center justify-space-around class-spec">
+      <v-img
+        class="class-icon"
+        max-width="40"
+        max-height="40"
+        :src="characterClassIcon"
+        :alt="characterClassName"
+      /><v-img
+        class="class-icon"
+        max-width="40"
+        max-height="40"
+        :src="characterSpecIcon"
+        :alt="characterSpecName"
+      />
     </div>
     <div class="col-12 col-md-7 col-lg-7 d-flex align-center list-item">
       <div
@@ -116,7 +115,19 @@ export default {
   }
 }
 </script>
- <style scoped>
+<style scoped>
+.character-name {
+  min-width: 115px;
+}
+
+.level {
+  min-width: 55px;
+}
+
+.class-spec {
+  min-width: 130px;
+}
+
 .loader-container {
   height: 50px;
   display: flex;

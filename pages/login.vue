@@ -16,7 +16,7 @@
           <div
             class="subtitle-2 text-center text--secondary font-weight-light"
           >
-            On attendais plus que toi !
+            On attendait plus que toi !
           </div>
         </v-col>
       </v-row>
