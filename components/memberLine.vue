@@ -1,9 +1,9 @@
 <template>
   <div class="row">
-    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center character-name" :style="{color: characterClassColor }">
+    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center character-name" :style="{color: characterClassColor }" :title="member.username">
       {{ member.name }}
     </div>
-    <div class="col-2 col-sm-1 col-md-1 col-lg-1 d-flex align-center ilevel">
+    <div class="col-2 col-sm-1 col-md-1 col-lg-1 d-flex align-center ilevel" title="iLevel">
       {{ character.equipped_item_level }}
     </div>
     <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center justify-space-around class-spec">
@@ -41,6 +41,7 @@
         class="item"
       >
         <a
+          v-if="item.item && item.item.id"
           :href="'https://fr.wowhead.com/item=' + item.item.id"
           target="_blank"
         >
@@ -52,6 +53,15 @@
           />
           <span :class="`item-level ${item.quality ? 'quality-' + item.quality.type.toLowerCase() : ''}`"> {{ item.level ? item.level.value : '' }}</span>
         </a>
+
+        <v-img
+          v-else
+          title="Emplacement vide"
+          :src="item.media.icon"
+          max-width="40"
+          max-height="40"
+          class="item-icon"
+        />
       </div>
     </div>
   </div>

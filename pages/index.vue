@@ -1,29 +1,13 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <v-card>
-        <v-card-title class="headline">
-          Page d'accueil
-        </v-card-title>
-        <v-card-subtitle>
-          En cours de Dev
-        </v-card-subtitle>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <HomePage />
 </template>
 
 <script>
+import HomePage from '@/components/homePage'
+
 export default {
   components: {
+    HomePage
   },
   methods: {
     signOut () {

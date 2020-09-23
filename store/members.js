@@ -39,6 +39,7 @@ export const actions = {
       const elem = doc.data()
 
       members.push({
+        username: elem.username,
         name: elem.mainCharacter
       })
     })

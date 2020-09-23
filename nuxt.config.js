@@ -11,21 +11,24 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: 'Les Pétales de Lotus',
+    title: 'Les Pétales de Lotus',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', 'viewport-fit': 'cover', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'manifest', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { innerHTML: 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};', type: 'text/javascript', charset: 'utf-8' },
       {
         src: 'https://wow.zamimg.com/widgets/power.js'
-      }
+      },
+      { innerHTML: 'const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};', type: 'text/javascript', charset: 'utf-8' }
     ]
   },
   /*
@@ -33,7 +36,8 @@ export default {
   */
   css: [
     '~/assets/default.scss',
-    '~/assets/quality-colors.scss'
+    '~/assets/quality-colors.scss',
+    '~/assets/colors.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -64,7 +68,8 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment'
   ],
   /*
   ** Nuxt.js modules
@@ -100,6 +105,10 @@ export default {
         }
       }
     }
+  },
+  moment: {
+    defaultLocale: 'fr',
+    locales: ['fr']
   },
   /*
   ** Build configuration
