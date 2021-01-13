@@ -1,28 +1,27 @@
 <template>
   <div class="row">
     <div class="col-12 col-lg-8 big_card home_card">
-      <div class="content_card" style="background-image: url(/WOW-Mounts-Feature.jpg);">
+      <div class="content_card" style="background-image: url(/Nathria.jpg);">
         <div class="fade" />
         <div class="title_card">
           <div class="text-subtitle-2 subtitle">
-            Tous les Lundis et Mercredis à 21h00 jusqu'à la sortie de Shadowlands
+            Tous les Lundis et Mercredis de 21h00 à 23h30
           </div>
           <div class="text-h6 text-md-h4 title">
-            Farm de Montures
+            Raid - Château Nathria
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4 py-0">
+    <div class="col-12 col-lg-4 py-0 home_card">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-12 small_card home_card">
           <div class="content_card" style="background-image: url(/nyalotha-the-waking-city-small.jpg);">
             <div class="fade" />
-            <div class="affixes row">
+            <div class="affixes">
               <a
                 v-for="(affix, i) in currentWeekAffixes"
                 :key="i"
-                class="col-3 d-flex justify-center align-center"
                 :href="'https://fr.wowhead.com/affix='+ affix.id "
                 target="_blank"
               >
@@ -129,6 +128,9 @@ export default {
 <style scoped>
 .affixes {
   height: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .fade {
