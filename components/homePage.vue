@@ -43,57 +43,25 @@
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-12 small_card home_card">
-          <div class="content_card" style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/26/266TOMUJ6LRZ1594366586147.jpg);">
+          <div class="content_card" style="background-image: url(/soontm.gif);">
             <div class="fade" />
-            <div class="title_card">
-              <div class="text-subtitle-2 subtitle">
-                Tous les Lundis et Mercredis à 21h00
-              </div>
-              <div class="text-h4 title">
-                Farm de Montures
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
-      <div class="content_card" style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/o9/O9FSFPZMTDYZ1594226802755.jpg);">
+      <div class="content_card" style="background-image: url(/soontm.gif);">
         <div class="fade" />
-        <div class="title_card">
-          <div class="text-subtitle-2 subtitle">
-            Tous les Lundis et Mercredis à 21h00
-          </div>
-          <div class="text-h4 title">
-            Farm de Montures
-          </div>
-        </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
-      <div class="content_card" style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/zh/ZHAGXXEOI9231594141868566.png);">
+      <div class="content_card" style="background-image: url(/soontm.gif);">
         <div class="fade" />
-        <div class="title_card">
-          <div class="text-subtitle-2 subtitle">
-            Tous les Lundis et Mercredis à 21h00
-          </div>
-          <div class="text-h4 title">
-            Farm de Montures
-          </div>
-        </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
-      <div class="content_card" style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/mv/MVKK5EJOGPU61470421579108.jpg);">
-        <div class="fade" />
-        <div class="title_card">
-          <div class="text-subtitle-2 subtitle">
-            Tous les Lundis et Mercredis à 21h00
-          </div>
-          <div class="text-h4 title">
-            Farm de Montures
-          </div>
-        </div>
+      <div class="content_card" style="background-image: url(/soontm.gif);">
+       <div class="fade" />
       </div>
     </div>
   </div>
