@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 col-lg-8 big_card home_card">
-      <div class="content_card" style="background-image: url(/Nathria.jpg);">
+      <div class="content_card" style="background-image: url(/nathria.jpg);">
         <div class="fade" />
         <div class="title_card">
           <div class="text-subtitle-2 subtitle">
@@ -16,7 +16,7 @@
     <div class="col-12 col-lg-4 py-0 home_card">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-12 small_card home_card">
-          <div class="content_card" style="background-image: url(/shadowland.jpg);">
+          <div class="content_card" style="background-image: url(/Shadowland.jpg);">
             <div class="fade" />
             <div class="affixes">
               <a
