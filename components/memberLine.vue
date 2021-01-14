@@ -43,6 +43,7 @@
         <a
           v-if="item.item && item.item.id"
           :href="'https://fr.wowhead.com/item=' + item.item.id"
+          :data-wowhead="'ilvl=' + item.level.value + '&bonus=' + item.bonus + '&gems=' + item.gems"
           target="_blank"
         >
           <v-img

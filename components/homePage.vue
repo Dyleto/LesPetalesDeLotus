@@ -16,7 +16,7 @@
     <div class="col-12 col-lg-4 py-0 home_card">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-12 small_card home_card">
-          <div class="content_card" style="background-image: url(/nyalotha-the-waking-city-small.jpg);">
+          <div class="content_card" style="background-image: url(/shadowland.jpg);">
             <div class="fade" />
             <div class="affixes">
               <a

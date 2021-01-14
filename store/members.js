@@ -101,6 +101,15 @@ const orderItemList = async function (items) {
     const itemName = itemOrder[index]
     let item = items.find(i => i.slot.type === itemName)
     if (item) {
+      if (item.bonus_list) {
+        item.bonus = item.bonus_list.join(':')
+      }
+
+      if (item.sockets) {
+        const activedSockets = item.sockets.filter(sock => sock.item)
+        item.gems = activedSockets.map(sock => sock.item.id).join(':')
+      }
+
       const itemIcon = await BlizzardService.getStatic(`data/wow/media/item/${item.media.id}?namespace=static-eu&locale=fr_FR`)
       if (itemIcon.assets && itemIcon.assets.length > 0) {
         item.media.icon = itemIcon.assets[0].value
