@@ -1,0 +1,50 @@
+{
+  "AppFooter": {
+    "description": "Auto imported from components/appFooter.vue"
+  },
+  "LazyAppFooter": {
+    "description": "Auto imported from components/appFooter.vue"
+  },
+  "AppNavbar": {
+    "description": "Auto imported from components/appNavbar.vue"
+  },
+  "LazyAppNavbar": {
+    "description": "Auto imported from components/appNavbar.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LogoBig": {
+    "description": "Auto imported from components/LogoBig.vue"
+  },
+  "LazyLogoBig": {
+    "description": "Auto imported from components/LogoBig.vue"
+  },
+  "MainCharacterDialog": {
+    "description": "Auto imported from components/mainCharacterDialog.vue"
+  },
+  "LazyMainCharacterDialog": {
+    "description": "Auto imported from components/mainCharacterDialog.vue"
+  },
+  "MemberLine": {
+    "description": "Auto imported from components/memberLine.vue"
+  },
+  "LazyMemberLine": {
+    "description": "Auto imported from components/memberLine.vue"
+  },
+  "SettingsAccount": {
+    "description": "Auto imported from components/settingsAccount.vue"
+  },
+  "LazySettingsAccount": {
+    "description": "Auto imported from components/settingsAccount.vue"
+  },
+  "SettingsMainCharacter": {
+    "description": "Auto imported from components/settingsMainCharacter.vue"
+  },
+  "LazySettingsMainCharacter": {
+    "description": "Auto imported from components/settingsMainCharacter.vue"
+  }
+}
