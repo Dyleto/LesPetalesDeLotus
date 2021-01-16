@@ -161,9 +161,13 @@ const getCharacterInfo = async (characterName) => {
     }
 
     const charMedia = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/character-media?namespace=profile-eu&locale=fr_FR`)
-    data.avatar_url = charMedia.avatar_url
-    data.bust_url = charMedia.bust_url
-    data.render_url = charMedia.render_url
+
+    if (charMedia.assets) {
+      data.avatar = charMedia.assets.find(t => t.key === 'avatar').value
+      data.inset = charMedia.assets.find(t => t.key === 'inset').value
+      data.main = charMedia.assets.find(t => t.key === 'main').value
+      data.main_raw = charMedia.assets.find(t => t.key === 'main-raw').value
+    }
 
     return data
   }

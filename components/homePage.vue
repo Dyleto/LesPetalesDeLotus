@@ -61,7 +61,7 @@
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
       <div class="content_card" style="background-image: url(/soontm.gif);">
-       <div class="fade" />
+        <div class="fade" />
       </div>
     </div>
   </div>

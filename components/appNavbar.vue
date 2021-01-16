@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     avatar () {
-      return this.mainCharacter ? this.mainCharacter.avatar_url : 'https://render-us.worldofwarcraft.com/shadow/avatar/1-0.jpg'
+      return this.mainCharacter && this.mainCharacter.avatar ? this.mainCharacter.avatar : 'https://render-us.worldofwarcraft.com/shadow/avatar/1-0.jpg'
     },
     characterClassColor () {
       return this.mainCharacter && this.mainCharacter.character_class && this.mainCharacter.character_class.media ? this.mainCharacter.character_class.media.color : ''

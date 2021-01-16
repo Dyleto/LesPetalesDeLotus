@@ -47,11 +47,11 @@
             @blur="passwordErrorMessages = []"
           />
         </v-col>
-        <v-col cols="12">
+        <!-- <v-col cols="12">
           <v-btn text x-small color="primary" class="mb-4">
             Tu as oublié ton mot de passe ?
           </v-btn>
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-row dense>
         <v-col cols="12">
