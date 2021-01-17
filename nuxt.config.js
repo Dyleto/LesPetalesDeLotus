@@ -15,7 +15,8 @@ export default {
     title: 'Les Pétales de Lotus',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', 'viewport-fit': 'cover', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', 'viewport-fit': 'cover', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
