@@ -22,11 +22,11 @@
               <a
                 v-for="(affix, i) in currentWeekAffixes"
                 :key="i"
-                :href="'https://fr.wowhead.com/affix='+ affix.id "
+                :href="'https://fr.wowhead.com/affix='+ affix "
                 target="_blank"
               >
                 <v-img
-                  :src="'/affixes/affix_' + affix.id + '.jpg'"
+                  :src="'/affixes/affix_' + affix + '.jpg'"
                   max-width="58"
                   max-height="58"
                   class="item-icon"
@@ -34,7 +34,22 @@
             </div>
             <div class="title_card">
               <div class="text-subtitle-2 subtitle">
-                Plus que {{ $moment().to(nextWednesday, true) }} pour faire votre donjon
+                <div class="nextweek-affixes">
+                Et pour la semaine prochaine :
+                  <a
+                    v-for="(affix, i) in nextWeekAffixes"
+                    :key="i"
+                    :href="'https://fr.wowhead.com/affix='+ affix "
+                    target="_blank"
+                    class="affix-icon"
+                  >
+                    <v-img
+                      :src="'/affixes/affix_' + affix + '.jpg'"
+                      max-width="25"
+                      max-height="25"
+                      class="item-icon"
+                    /></a>
+                </div>
               </div>
               <div class="text-h4 title">
                 Affixes MM+
@@ -76,7 +91,7 @@
 </template>
 
 <script>
-// import affix from '@/services/affix'
+import affix from '@/services/affix'
 
 export default {
   data () {
@@ -94,9 +109,8 @@ export default {
     }
   },
   created () {
-    this.$axios.get('https://raider.io/api/v1/mythic-plus/affixes?region=eu&locale=fr').then(({ data }) => {
-      this.currentWeekAffixes = data.affix_details
-    })
+    this.currentWeekAffixes = affix.getCurrentWeekAffixes()
+    this.nextWeekAffixes = affix.getNextWeekAffixes()
   }
 }
 </script>
@@ -107,6 +121,15 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.nextweek-affixes {
+  display: flex;
+  align-items: center;
+}
+
+.nextweek-affixes .affix-icon {
+  margin-left: 15px;
 }
 
 .fade {
