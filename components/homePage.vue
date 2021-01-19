@@ -50,8 +50,16 @@
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
-      <div class="content_card" style="background-image: url(/soontm.gif);">
+      <div class="content_card" style="background-image: url(/Opulence.jpg);">
         <div class="fade" />
+        <div class="title_card">
+          <div class="text-subtitle-2 subtitle">
+            Merci d'aider la guilde pour les recettes de <a class="link" target="_blank" href="https://fr.wowhead.com/spell=308403/festin-de-fine-gueule" data-wowhead="item=308403">festins</a> et de <a  class="link" target="_blank" href="https://fr.wowhead.com/spell=307087/chaudron-%C3%A9ternel" data-wowhead="item=307087">chaudrons</a>
+          </div>
+          <div class="text-h4 title">
+            Préparation des raids
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 small_card home_card">
@@ -127,8 +135,15 @@ export default {
   width: 100%;
 }
 
-.title_card > .title {
+.title_card > .title,
+.link {
   color: var(--lpdl-primary);
+}
+
+.link {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.3em !important;
 }
 
 .title_card > .subtitle {
