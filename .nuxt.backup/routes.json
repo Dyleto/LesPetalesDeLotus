@@ -1,0 +1,44 @@
+[
+  {
+    "name": "account",
+    "path": "/account",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\account.vue",
+    "chunkName": "pages/account",
+    "_name": "_1c61b567"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_d85305ba"
+  },
+  {
+    "name": "members",
+    "path": "/members",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\members.vue",
+    "chunkName": "pages/members",
+    "_name": "_3c4b9e53"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_68c5364e"
+  },
+  {
+    "name": "settings",
+    "path": "/settings",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\settings.vue",
+    "chunkName": "pages/settings",
+    "_name": "_51413259"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "E:\\\\Dev\\\\LesPetalesDeLotus\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_6ba24be8"
+  }
+]
