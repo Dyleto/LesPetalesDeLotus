@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     v-model="dialog"
-    max-width="290"
+    max-width="450"
   >
     <v-card class="pb-3">
       <v-card-title class="headline dialog-title">
@@ -19,7 +19,7 @@
           class="mx-auto"
           @click="dialog = false"
         >
-          Paramètres
+          Aller aux paramètres
         </v-btn>
       </v-card-actions>
     </v-card>

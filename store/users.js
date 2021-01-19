@@ -137,6 +137,9 @@ export const actions = {
     await auth.signOut()
     commit('SET_USER', null)
     commit('SET_MAIN_CHARACTER', null)
+  },
+  async resetPassword ({ commit }, email) {
+    await auth.sendPasswordResetEmail(email)
   }
 }
 
