@@ -1,6 +1,7 @@
-import { auth, StoreDB } from '@/services/fireinit.js'
+import { auth, StoreDB } from '@/services/fireinit'
 import BlizzardService from '@/services/blizzard'
 import classes from '@/services/classes'
+import specificRealm from '@/services/specificRealm'
 
 export const state = () => ({
   user: {
@@ -153,7 +154,7 @@ export const mutations = {
 }
 
 const getCharacterInfo = async (characterName) => {
-  const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}?namespace=profile-eu&locale=fr_FR`)
+  const data = await BlizzardService.getProfile(`profile/wow/character/${specificRealm.getRealm(characterName)}/${characterName.toLowerCase()}?namespace=profile-eu&locale=fr_FR`)
 
   if (data) {
     const classInfo = classes.getById(data.character_class.id)
@@ -163,7 +164,7 @@ const getCharacterInfo = async (characterName) => {
       ...classInfo
     }
 
-    const charMedia = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/character-media?namespace=profile-eu&locale=fr_FR`)
+    const charMedia = await BlizzardService.getProfile(`profile/wow/character/${specificRealm.getRealm(characterName)}/${characterName.toLowerCase()}/character-media?namespace=profile-eu&locale=fr_FR`)
 
     if (charMedia.assets) {
       data.avatar = charMedia.assets.find(t => t.key === 'avatar').value

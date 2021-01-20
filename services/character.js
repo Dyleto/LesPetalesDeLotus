@@ -1,7 +1,7 @@
-import BlizzardService from '@/services/blizzard.js'
-import { BLIZZARD_REALM } from '@/services/config.js'
+import BlizzardService from '@/services/blizzard'
+import specificRealm from '@/services/specificRealm'
 
-const url = pseudo => `profile/wow/character/${BLIZZARD_REALM.toLowerCase()}/${pseudo.toLowerCase()}?namespace=profile-eu&locale=fr_FR`
+const url = pseudo => `profile/wow/character/${specificRealm.getRealm(pseudo)}/${pseudo.toLowerCase()}?namespace=profile-eu&locale=fr_FR`
 
 const BlizzardCharacterService = {
   retrieveCharacter (pseudo) {
