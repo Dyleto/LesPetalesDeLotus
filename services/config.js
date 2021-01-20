@@ -15,3 +15,9 @@ export const BLIZZARD_NAMESPACE = 'dynamic-eu'
 export const BLIZZARD_LOCALE = 'fr_FR'
 export const BLIZZARD_REALM = 'Archimonde'
 export const BLIZZARD_GUILD = 'Les Pétales de Lotus'
+
+// Spécifique
+
+export const SPECIFIC_REALM = {
+  diposite: 'Hyjal'
+}
