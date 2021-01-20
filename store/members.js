@@ -1,5 +1,6 @@
 import BlizzardService from '@/services/blizzard'
-import { StoreDB } from '@/services/fireinit.js'
+import { StoreDB } from '@/services/fireinit'
+import specificRealm from '@/services/specificRealm'
 
 const itemOrder = [
   'HEAD',
@@ -49,7 +50,7 @@ export const actions = {
   async loadMemberCharacterInfo ({ commit }, characterName) {
     let fullCharacter = {}
     try {
-      const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}?namespace=profile-eu&locale=fr_FR`)
+      const data = await BlizzardService.getProfile(`profile/wow/character/${specificRealm.getRealm(characterName)}/${characterName.toLowerCase()}?namespace=profile-eu&locale=fr_FR`)
       if (data) {
         fullCharacter = data
       }
@@ -62,7 +63,7 @@ export const actions = {
   async loadMemberItems ({ commit }, characterName) {
     let items = []
     try {
-      const data = await BlizzardService.getProfile(`profile/wow/character/archimonde/${characterName.toLowerCase()}/equipment?namespace=profile-eu&locale=fr_FR`)
+      const data = await BlizzardService.getProfile(`profile/wow/character/${specificRealm.getRealm(characterName)}/${characterName.toLowerCase()}/equipment?namespace=profile-eu&locale=fr_FR`)
       if (data) {
         items = await orderItemList(data.equipped_items)
       }
@@ -127,5 +128,4 @@ const orderItemList = async function (items) {
 
   return Object.values(completeItems)
 }
-
 // const filterMembers = members => members.filter(m => Math.round((Date.now() - new Date(m.character.last_login_timestamp)) / (1000 * 60 * 60 * 24)) < 365)
