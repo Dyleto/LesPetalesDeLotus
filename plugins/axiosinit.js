@@ -1,5 +1,7 @@
-import { setAxios } from '~/services/blizzard'
+import { setAxios as setBlizzardAxios } from '~/services/blizzard'
+import { setAxios as setRioAxios } from '~/services/rio'
 
 export default ({ app }) => {
-  setAxios(app.$axios)
+  setBlizzardAxios(app.$axios)
+  setRioAxios(app.$axios)
 }

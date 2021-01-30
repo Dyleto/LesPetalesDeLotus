@@ -16,6 +16,9 @@ export const BLIZZARD_LOCALE = 'fr_FR'
 export const BLIZZARD_REALM = 'Archimonde'
 export const BLIZZARD_GUILD = 'Les Pétales de Lotus'
 
+// Constantes Raider.io
+export const RIO_API_CHARACTER_URL = 'https://raider.io/api/v1/characters/profile'
+
 // Spécifique
 
 export const SPECIFIC_REALM = {

@@ -5,7 +5,7 @@ import {
   BLIZZARD_GRANT_TYPE,
   BLIZZARD_TOKEN_KEY,
   BLIZZARD_TOKEN_EXP_KEY
-} from '@/services/config.js'
+} from '@/services/config'
 
 let axiosConfig = {
   params: {}
