@@ -1,17 +1,18 @@
 import RioService from '@/services/rio'
 
 export const state = () => ({
-  name: 'test'
+  character: {}
 })
 
 export const getters = {
-  getCharacter: (state) => {
-    return state
+  character: (state) => {
+    return state.character
   }
 }
 
 export const actions = {
   async loadCharacter ({ commit }, characterName) {
+    console.log(characterName)
     let fullCharacter = {}
     try {
       const data = await RioService.getCharacter(characterName)
@@ -24,12 +25,13 @@ export const actions = {
     }
 
     commit('SET_CHARACTER', fullCharacter)
+    return fullCharacter
   }
 }
 
 export const mutations = {
   SET_CHARACTER: (state, character) => {
-    Object.assign(state, character)
+    state.character = character
   }
 }
 

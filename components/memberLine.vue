@@ -1,7 +1,14 @@
 <template>
   <div class="row">
-    <div class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center character-name" :style="{color: characterClassColor }" :title="member.username">
-      {{ member.name }}
+    <div to="/" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 d-flex align-center character-name">
+    <v-btn
+      text
+      small
+      class="remove-active logo-btn"
+      :to="'/character/'+ member.name "
+      :title="member.username"
+      :color="characterClassColor"
+    >{{ member.name }}</v-btn>
     </div>
     <div class="col-2 col-sm-1 col-md-1 col-lg-1 d-flex align-center ilevel" title="iLevel">
       {{ character.equipped_item_level }}
@@ -106,7 +113,7 @@ export default {
   mounted () {
     this.character = this.member
     this.loadCharacterInfo()
-    this.loadItems()
+    // this.loadItems()
   },
   methods: {
     async loadItems () {
